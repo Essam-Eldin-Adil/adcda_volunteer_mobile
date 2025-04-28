@@ -161,45 +161,6 @@ class OnBoardingScreen extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      if (controller.selectedPageIndex.value ==
-                                          3) {
-                                        Preferences.setBoolean(
-                                          Preferences.isFinishOnBoardingKey,
-                                          true,
-                                        );
-                                        // Get.offAll(WelcomeScreen());
-                                      } else {
-                                        controller.pageController.animateToPage(
-                                          controller.selectedPageIndex.value +
-                                              1,
-                                          duration: Duration(milliseconds: 500),
-                                          curve: Curves.easeInOut,
-                                        );
-                                      }
-                                    },
-                                    child: Row(
-                                      children: [
-                                        Icon(
-                                          Icons.arrow_back,
-                                          color: Colors.white,
-                                        ),
-                                        SizedBox(width: 3),
-                                        Text(
-                                          controller.selectedPageIndex.value ==
-                                                  3
-                                              ? 'Get started'.tr
-                                              : 'Next'.tr,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: List.generate(
@@ -229,6 +190,45 @@ class OnBoardingScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ),
+                                    ),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      if (controller.selectedPageIndex.value ==
+                                          3) {
+                                        Preferences.setBoolean(
+                                          Preferences.isFinishOnBoardingKey,
+                                          true,
+                                        );
+                                        // Get.offAll(WelcomeScreen());
+                                      } else {
+                                        controller.pageController.animateToPage(
+                                          controller.selectedPageIndex.value +
+                                              1,
+                                          duration: Duration(milliseconds: 500),
+                                          curve: Curves.easeInOut,
+                                        );
+                                      }
+                                    },
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          controller.selectedPageIndex.value ==
+                                                  3
+                                              ? 'Get started'.tr
+                                              : 'Next'.tr,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        SizedBox(width: 3),
+                                        Icon(
+                                          Icons.arrow_forward,
+                                          color: Colors.white,
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ],

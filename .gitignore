@@ -17,6 +17,7 @@
 /android/.gradle/
 /android/app/build/
 /android/local.properties
+/.vs
 *.iml
 .idea/
 *.log

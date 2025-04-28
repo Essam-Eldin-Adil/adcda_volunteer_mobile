@@ -5,6 +5,7 @@ import 'package:adcda_volunteers_mobile/core/utils/Preferences.dart';
 import 'package:adcda_volunteers_mobile/screens/home/home_screen.dart';
 import 'package:adcda_volunteers_mobile/screens/auth/login_screen.dart';
 import 'package:adcda_volunteers_mobile/screens/on_boarding/on_boarding_screen.dart';
+import 'package:adcda_volunteers_mobile/screens/welcome/welcome_screen.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -22,7 +23,7 @@ class SplashController extends GetxController {
       if (isLogin == true) {
         Get.offAll(HomeScreen());
       } else {
-        Get.offAll(LoginScreen());
+        Get.offAll(WelcomeScreen());
       }
     }
   }
