@@ -1,0 +1,21 @@
+flutter_native_splash:
+  color: "#FFFFFF"
+  #background_image: assets/images/splash_container.jpg
+  image: assets/images/splash_logo.png
+  #branding: assets/images/branding.jpg
+  #branding_mode: bottom
+  
+  android_12:
+    image: assets/images/splash_logo.png
+    icon_background_color: "#FFFFFF"
+    #background_image: assets/images/splash_container.jpg
+    #branding: assets/images/branding.jpg
+
+  web: false
+  ios: true
+  android: true
+
+  # Optional parameters:
+  android_gravity: center
+  ios_content_mode: scaleAspectFill
+  fullscreen: true
