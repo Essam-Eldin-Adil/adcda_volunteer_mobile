@@ -56,8 +56,8 @@ class _LanguageSwitchButtonState extends State<LanguageSwitchButton> {
         initialLabelIndex: languageIndex,
         cornerRadius: 5.0,
         activeBgColor: [AppColors.primaryDark],
-        inactiveBgColor: Colors.white,
-        borderColor: [Colors.white, Colors.white],
+        inactiveBgColor: Color(0xFFC5B9AC),
+        borderColor: [Color(0xFFC5B9AC), Color(0xFFC5B9AC)],
         customTextStyles: [
           TextStyle(
             fontSize: 12,
@@ -74,6 +74,13 @@ class _LanguageSwitchButtonState extends State<LanguageSwitchButton> {
         labels: ['E', 'ع'],
 
         onToggle: (index) {
+          setState(() {
+            languageIndex = index!;
+            var newLocale = index == 0 ? 'en' : 'ar';
+            var countryCode = index == 0 ? 'US' : 'AE';
+            _changeLanguage(newLocale, countryCode);
+          });
+          return;
           showAlertDialog(
             context: context,
             title: 'title',

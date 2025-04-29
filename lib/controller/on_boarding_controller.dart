@@ -22,33 +22,34 @@ class OnBoardingController extends GetxController {
       OnBoardingModel(
         id: "1",
         image: "assets/images/svg/logo.svg", // Path to your illustration
-        title: "Welcome to",
+        title: "Welcome",
         subTitle: "",
         description: "",
       ),
       OnBoardingModel(
         id: "2",
         image: "assets/images/onboarding/tap1.svg", // Path to your illustration
-        title: "Join Abu Dhabi Civil Defence Authority Volunteers",
+        title: "Join ADCDA Volunteers".tr,
         subTitle: "",
         description:
-            "Be a vital part of our emergency response network. As an ADCDA volunteer, you'll help protect lives and support your community when it matters most.",
+            "Be a vital part of our emergency response network. As an ADCDA volunteer, you'll help protect lives and support your community when it matters most."
+                .tr,
       ),
       OnBoardingModel(
         id: "3",
         image: "assets/images/onboarding/tap2.svg", // Path to your illustration
-        title: "Join Abu Dhabi Civil Defence Authority Volunteers",
+        title: "ADCDA Fire Volunteers",
         subTitle: "",
         description:
-            "Be a vital part of our emergency response network. As an ADCDA volunteer, you'll help protect lives and support your community when it matters most.",
+            "Become part of Abu Dhabi's emergency response team. As a firefighting volunteer, you'll be trained to assist professional firefighters and help protect our community during critical situations.",
       ),
       OnBoardingModel(
         id: "3",
         image: "assets/images/onboarding/tap3.svg", // Path to your illustration
-        title: "Join Abu Dhabi Civil Defence Authority Volunteers",
+        title: "Road Emergency Response",
         subTitle: "",
         description:
-            "Be a vital part of our emergency response network. As an ADCDA volunteer, you'll help protect lives and support your community when it matters most.",
+            "Join ADCDA's specialized team of volunteers trained to assist at road incidents. Your quick action and support can make a critical difference in the crucial moments following an accident.",
       ),
     ];
     onBoardingList.addAll(onboardingData);

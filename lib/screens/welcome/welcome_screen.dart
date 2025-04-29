@@ -1,8 +1,12 @@
+import 'package:adcda_volunteers_mobile/core/theme/responsive.dart';
+import 'package:adcda_volunteers_mobile/screens/auth/login_screen.dart';
 import 'package:adcda_volunteers_mobile/screens/home/home_screen.dart';
 import 'package:adcda_volunteers_mobile/widgets/app_header.dart';
 import 'package:adcda_volunteers_mobile/widgets/app_logo.dart';
 import 'package:adcda_volunteers_mobile/widgets/cover_image.dart';
 import 'package:adcda_volunteers_mobile/widgets/custom_button.dart';
+import 'package:adcda_volunteers_mobile/widgets/language_switch_button.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -18,61 +22,78 @@ class WelcomeScreen extends StatelessWidget {
       body: Stack(
         children: [
           CoverImage(),
-          Column(
-            children: [
-              appHeader(context),
-              Column(
-                children: [
-                  const SizedBox(height: 90),
-                  Text(
-                    'Welcome To'.tr,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                  appLogoLg(context),
-                  const SizedBox(height: 20),
-                  Container(
-                    height: 140,
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: BoxedButton(
-                            label: 'Training code',
-                            onPressed: () {},
-                            icon: 'assets/images/svg/training_code_icon.svg',
-                          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                appHeader(context),
+                SizedBox(height: Responsive.height(4.39, context)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    LanguageSwitchButton(),
+                    appLogo(context, width: 27.50),
+                  ],
+                ),
+
+                Column(
+                  children: [
+                    SizedBox(height: Responsive.height(13.08, context)),
+                    FadeInUpBig(
+                      duration: Duration(milliseconds: 1000),
+                      child: Text(
+                        'Choose Your Access \n Method'.tr,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w600,
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: BoxedButton(
-                            label: 'Login',
+                      ),
+                    ),
+                    SizedBox(height: Responsive.height(6.17, context)),
+                    Column(
+                      children: [
+                        FadeInUpBig(
+                          duration: Duration(milliseconds: 1000),
+                          delay: Duration(milliseconds: 200),
+                          child: BorderedButton(
+                            label: 'Login'.tr,
                             onPressed: () {
-                              Get.offAll(HomeScreen());
+                              Get.offAll(LoginScreen());
                             },
                             icon: 'assets/images/svg/login_icon.svg',
                           ),
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: BoxedButton(
-                            label: 'Be a member',
-                            onPressed: () {},
+                        SizedBox(height: Responsive.height(1.36, context)),
+                        FadeInUpBig(
+                          duration: Duration(milliseconds: 1000),
+                          delay: Duration(milliseconds: 400),
+                          child: BorderedButton(
+                            label: 'Be a member'.tr,
+                            onPressed: () {
+                              Get.offAll(HomeScreen());
+                            },
                             icon: 'assets/images/svg/be_member_icon.svg',
+                          ),
+                        ),
+                        SizedBox(height: Responsive.height(1.36, context)),
+                        FadeInUpBig(
+                          duration: Duration(milliseconds: 1000),
+                          delay: Duration(milliseconds: 600),
+                          child: BorderedButton(
+                            label: 'Training code'.tr,
+                            onPressed: () {},
+                            icon: 'assets/images/svg/training_code_icon.svg',
                           ),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-              // Expanded(flex: 2, child: SizedBox()),
-            ],
+                  ],
+                ),
+                // Expanded(flex: 2, child: SizedBox()),
+              ],
+            ),
           ),
         ],
       ),

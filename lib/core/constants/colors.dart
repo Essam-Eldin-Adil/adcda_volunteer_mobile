@@ -13,7 +13,7 @@ class AppColors {
   static const Color lightGray = Color(0xffF4F4F4);
   static const Color ratingColour = Color(0xffECA700);
   static const Color dottedDivider = Color(0xff7D7D7D);
-  static const Color subTitleColor = Color(0xff888888);
+  static const Color subTitleColor = Color(0xFFC5C5C5);
 
   static const Color containerBackground = Color(0xFFFFFFFF);
   static const Color darkContainerBackground = Color(0xFF202020);

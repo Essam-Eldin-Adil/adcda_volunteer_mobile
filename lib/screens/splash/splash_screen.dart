@@ -12,9 +12,7 @@ class SplashScreen extends StatelessWidget {
     return GetBuilder<SplashController>(
       init: SplashController(),
       builder: (controller) {
-        return Stack(
-          children: [CoverImage(), Center(child: appLogoLg(context))],
-        );
+        return Stack(children: [CoverImage(), Center(child: appLogo(context))]);
       },
     );
   }

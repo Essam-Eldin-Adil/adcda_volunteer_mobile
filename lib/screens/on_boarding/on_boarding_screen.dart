@@ -1,7 +1,9 @@
 import 'package:adcda_volunteers_mobile/controller/on_boarding_controller.dart';
 import 'package:adcda_volunteers_mobile/core/constants/colors.dart';
 import 'package:adcda_volunteers_mobile/core/constants/constant.dart';
+import 'package:adcda_volunteers_mobile/core/theme/responsive.dart';
 import 'package:adcda_volunteers_mobile/core/utils/Preferences.dart';
+import 'package:adcda_volunteers_mobile/screens/welcome/welcome_screen.dart';
 import 'package:adcda_volunteers_mobile/widgets/app_header.dart';
 import 'package:adcda_volunteers_mobile/widgets/app_logo.dart';
 import 'package:adcda_volunteers_mobile/widgets/cover_image.dart';
@@ -31,21 +33,18 @@ class OnBoardingScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           appHeader(context),
-                          SizedBox(height: 10),
-                          Expanded(
-                            flex: 0,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                ),
-                                child: LanguageSwitchButton(),
-                              ),
+                          SizedBox(height: Responsive.height(1.05, context)),
+                          Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                LanguageSwitchButton(),
+                                appLogo(context, width: 27.50),
+                              ],
                             ),
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: Responsive.height(1.05, context)),
                           Expanded(
                             flex: 3,
                             child: PageView.builder(
@@ -64,12 +63,12 @@ class OnBoardingScreen extends StatelessWidget {
                                               .tr,
                                           style: const TextStyle(
                                             color: Colors.white,
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.w600,
+                                            fontSize: 36,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                         const SizedBox(height: 50),
-                                        appLogoLg(context),
+                                        appLogo(context),
                                         const SizedBox(height: 10),
                                         controller
                                                     .onBoardingList[index]
@@ -101,7 +100,7 @@ class OnBoardingScreen extends StatelessWidget {
                                     )
                                     : Column(
                                       children: [
-                                        const SizedBox(height: 90),
+                                        //    const SizedBox(height: 90),
                                         Padding(
                                           padding: const EdgeInsets.only(
                                             bottom: 40,
@@ -110,6 +109,10 @@ class OnBoardingScreen extends StatelessWidget {
                                             controller
                                                 .onBoardingList[index]
                                                 .image!,
+                                            width: Responsive.width(
+                                              57.95,
+                                              context,
+                                            ),
                                           ),
                                         ),
                                         //const SizedBox(height: 10),
@@ -183,8 +186,8 @@ class OnBoardingScreen extends StatelessWidget {
                                                           .selectedPageIndex
                                                           .value ==
                                                       index
-                                                  ? AppColors.primary
-                                                  : const Color(0xffD4D5E0),
+                                                  ? Colors.white
+                                                  : AppColors.primary,
                                           borderRadius: const BorderRadius.all(
                                             Radius.circular(20.0),
                                           ),
@@ -200,7 +203,7 @@ class OnBoardingScreen extends StatelessWidget {
                                           Preferences.isFinishOnBoardingKey,
                                           true,
                                         );
-                                        // Get.offAll(WelcomeScreen());
+                                        Get.offAll(WelcomeScreen());
                                       } else {
                                         controller.pageController.animateToPage(
                                           controller.selectedPageIndex.value +
@@ -219,8 +222,8 @@ class OnBoardingScreen extends StatelessWidget {
                                               : 'Next'.tr,
                                           style: const TextStyle(
                                             color: Colors.white,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                         SizedBox(width: 3),

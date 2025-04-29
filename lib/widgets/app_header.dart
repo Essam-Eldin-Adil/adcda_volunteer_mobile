@@ -7,7 +7,7 @@ Widget appHeader(BuildContext context) {
     textDirection: TextDirection.ltr,
     child: SafeArea(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+        padding: const EdgeInsets.only(top: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

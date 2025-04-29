@@ -7,7 +7,7 @@ class CoverImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       opcity == "200"
-          ? "assets/images/bg_cover_container-200.jpg"
+          ? "assets/images/bg_container-200.jpg"
           : "assets/images/bg_cover_container.jpg",
       fit: BoxFit.cover,
       width: double.infinity,
