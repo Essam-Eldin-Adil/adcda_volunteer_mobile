@@ -5,6 +5,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class Constant {
   static const String userData = "user_data";
+  static const int animationDuration = 1000;
 
   static Widget loader() {
     return Center(

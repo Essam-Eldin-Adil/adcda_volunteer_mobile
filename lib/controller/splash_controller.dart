@@ -3,7 +3,6 @@ import 'dart:async';
 //import 'package:ebc_mobile/utils/fire_store_utils.dart';
 import 'package:adcda_volunteers_mobile/core/utils/Preferences.dart';
 import 'package:adcda_volunteers_mobile/screens/home/home_screen.dart';
-import 'package:adcda_volunteers_mobile/screens/auth/login_screen.dart';
 import 'package:adcda_volunteers_mobile/screens/on_boarding/on_boarding_screen.dart';
 import 'package:adcda_volunteers_mobile/screens/welcome/welcome_screen.dart';
 import 'package:get/get.dart';
@@ -16,6 +15,8 @@ class SplashController extends GetxController {
   }
 
   redirectScreen() async {
+    //Get.offAll(const OnBoardingScreen());
+    //return;
     if (Preferences.getBoolean(Preferences.isFinishOnBoardingKey) == false) {
       Get.offAll(const OnBoardingScreen());
     } else {

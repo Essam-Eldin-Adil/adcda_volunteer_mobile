@@ -36,4 +36,9 @@ class AppColors {
   static const Color serviceColor1 = Color(0xffFFF9E3);
   static const Color serviceColor2 = Color(0xffF2F1FF);
   static const Color serviceColor3 = Color(0xffFFF5F5);
+
+  static const Color success = Color(0xFF4CAF50); // Green
+  static const Color danger = Color(0xFFF44336); // Red
+  static const Color info = Color(0xFF2196F3); // Blue
+  static const Color warning = Color(0xFFFF9800); // Orange
 }

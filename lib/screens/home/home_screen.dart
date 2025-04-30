@@ -3,7 +3,6 @@ import 'package:adcda_volunteers_mobile/widgets/app_header.dart';
 import 'package:adcda_volunteers_mobile/widgets/app_logo.dart';
 import 'package:adcda_volunteers_mobile/widgets/card_widget.dart';
 import 'package:adcda_volunteers_mobile/widgets/cover_image.dart';
-import 'package:adcda_volunteers_mobile/widgets/curved_card.dart';
 import 'package:adcda_volunteers_mobile/widgets/language_switch_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

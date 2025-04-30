@@ -15,4 +15,23 @@ const Map<String, String> arAR = {
   "Enter Verification code": "أدخل رمز التحقق",
   "Captcha": "كود التحقق",
   "Or": "أو",
+  "Loading...": "جار التحميل...",
+  "Welcome": "مرحبا بك",
+  "Join ADCDA Volunteers": "انضم إلى متطوعي ADCDA",
+  "Be a vital part of our emergency response network. As an ADCDA volunteer, you'll help protect lives and support your community when it matters most.":
+      "كن جزءًا حيويًا من شبكة الاستجابة للطوارئ لدينا. كمتطوع في ADCDA ، ستساعد في حماية الأرواح ودعم مجتمعك عندما يكون ذلك مهمًا.",
+  "ADCDA Fire Volunteers": "متطوعو إطفاء ADCDA",
+  "Become part of Abu Dhabi's emergency response team. As a firefighting volunteer, you'll be trained to assist professional firefighters and help protect our community during critical situations.":
+      "كن جزءًا من فريق الاستجابة للطوارئ في أبوظبي. كمتطوع في إطفاء الحرائق ، سيتم تدريبك على مساعدة رجال الإطفاء المحترفين والمساعدة في حماية مجتمعنا خلال المواقف الحرجة.",
+  "Road Emergency Response": "استجابة الطوارئ على الطرق",
+  "Join ADCDA's specialized team of volunteers trained to assist at road incidents. Your quick action and support can make a critical difference in the crucial moments following an accident.":
+      "انضم إلى فريق متطوعي ADCDA المتخصصين المدربين على المساعدة في حوادث الطرق. يمكن أن تحدث تصرفاتك السريعة ودعمك فرقًا حاسمًا في اللحظات الحاسمة التي تلي الحادث.",
+"Register":"تسجيل",
+"OTP":"رمز التحقق",
+"Enter OTP":"أدخل رمز التحقق",
+"Verifiy your phone number":"تحقق من رقم هاتفك",
+"Send OTP":"إرسال رمز التحقق",
+"Resend OTP in:":"إعادة إرسال رمز التحقق في:",
+"Didn’t get the OTP?":"لم تتلق رمز التحقق؟",
+"Verify":"تحقق",
 };

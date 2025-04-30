@@ -1,4 +1,4 @@
-import 'package:adcda_volunteers_mobile/controller/login_controller.dart';
+import 'package:adcda_volunteers_mobile/controller/register_controller.dart';
 import 'package:adcda_volunteers_mobile/core/constants/colors.dart';
 import 'package:adcda_volunteers_mobile/core/theme/responsive.dart';
 import 'package:adcda_volunteers_mobile/widgets/app_header.dart';
@@ -11,18 +11,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
-    return GetX<LoginController>(
-      init: LoginController(),
+    return GetX<RegisterController>(
+      init: RegisterController(),
       builder: (controller) {
         return Scaffold(
       body: BackgroundContainer(
@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
             appSubHeader(context),
              SizedBox(height: Responsive.height(4, context)),
              CurvedCard(
-                title: 'Login'.tr,
+                title: 'Register'.tr,
                 delay: controller.geyDelay(),
                 duration: controller.animateDuration.value,
                 height: Responsive.height(100, context) - Responsive.height(20, context),
@@ -58,34 +58,22 @@ class _LoginScreenState extends State<LoginScreen> {
                     FadeInUpBig(
                       duration: Duration(milliseconds: controller.animateDuration.value),
                       delay: Duration(milliseconds: controller.geyDelay()),
-                      child: CustomInputField(
-                        label: 'Password'.tr,
-                        hintText: 'Enter password'.tr,
-                        inputType: TextInputType.name,
-                        controller: TextEditingController(),
-                        icon: Icons.lock,
-                      ),
-                    ),
-                    SizedBox(height: Responsive.height(1.88, context)),
-                    FadeInUpBig(
-                      duration: Duration(milliseconds: controller.animateDuration.value),
-                      delay: Duration(milliseconds: controller.geyDelay()),
                       child: CaptchaComponent(
                         controller: TextEditingController(),
-                        captchaImageBase64:
-                             controller.captchaImageBase64.value,
-                     onRefresh: controller.refreshCaptcha(),
+                        captchaImageBase64:controller.captchaImageBase64.value,
+                        onRefresh: () {
+                          controller.refreshCaptcha();
+                        },
                       ),
-                      
                     ),
                     SizedBox(height: Responsive.height(1.88, context)),
                     FadeInUpBig(
                       duration: Duration(milliseconds: controller.animateDuration.value),
                       delay: Duration(milliseconds: controller.geyDelay()),
                       child: CustomButton(
-                        label: 'Login'.tr,
+                        label: 'Next'.tr,
                         onPressed: () {
-                          controller.login();
+                          controller.register();
                         },
                       ),
                     ),
@@ -113,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       delay: Duration(milliseconds: controller.geyDelay()),
                       child: UAEPassButton(
                         onPressed: () {
-                          // Handle login action
+                          // Handle Register action
                         },
                       ),
                     ),

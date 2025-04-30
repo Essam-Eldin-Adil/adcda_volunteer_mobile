@@ -1,6 +1,5 @@
 import 'package:adcda_volunteers_mobile/core/theme/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:convert';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:get/utils.dart'; // For Base64 decoding
@@ -62,11 +61,12 @@ class CustomInputField extends StatelessWidget {
 class CaptchaComponent extends StatelessWidget {
   final String captchaImageBase64; // Base64 string for the CAPTCHA image
   final TextEditingController controller; // Controller for the text input
-
+  final Function? onRefresh; // Callback function to refresh the CAPTCHA
   const CaptchaComponent({
     super.key,
     required this.captchaImageBase64,
     required this.controller,
+    this.onRefresh,
   });
 
   @override
@@ -81,13 +81,26 @@ class CaptchaComponent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Enter Verification code'.tr,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Enter Verification code'.tr,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      if (onRefresh != null) {
+                        onRefresh!();
+                      }
+                    },
+                    child: Icon(Icons.refresh, color: Colors.white),
+                  )
+                ],
               ),
               TextField(
                 controller: controller,
@@ -141,70 +154,5 @@ class CaptchaComponent extends StatelessWidget {
         ),
       ],
     );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Enter Verification code',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8),
-        Row(
-          children: [
-            // Left side: "Captcha" button-like container
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              decoration: BoxDecoration(
-                color: Colors.grey[400],
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Text(
-                'Captcha',
-                style: TextStyle(color: Colors.black, fontSize: 16),
-              ),
-            ),
-            const SizedBox(width: 16),
-            // Right side: CAPTCHA image from Base64
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              decoration: BoxDecoration(
-                color: Colors.grey[600],
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Image.memory(
-                bytes,
-                width: 120, // Adjust size as needed
-                height: Responsive.height(10.56, context),
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) {
-                  return const Text(
-                    'Error loading CAPTCHA',
-                    style: TextStyle(color: Colors.red),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 16),
-        // Text field for user to enter CAPTCHA code
-        TextField(
-          controller: controller,
-          decoration: InputDecoration(
-            labelText: 'CAPTCHA'.tr,
-            filled: true,
-            fillColor: const Color(0x385B6F80),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              borderSide: BorderSide.none,
-            ),
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: 16.0,
-              horizontal: 12.0,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
+    }
 }
